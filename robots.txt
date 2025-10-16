@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://www.rupur.vn/sitemap.xml
 Sitemap: https://duyminh241002-star.github.io/lolicell/sitemap.xml

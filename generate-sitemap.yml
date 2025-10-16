@@ -1,0 +1,34 @@
+name: Generate sitemap.xml
+
+on:
+  push:
+    paths:
+      - "urls.txt"
+      - ".github/workflows/generate-sitemap.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate sitemap.xml
+        run: |
+          python --version
+          python generate_sitemap.py
+
+      - name: Commit sitemap.xml back
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-generate sitemap.xml"
+          file_pattern: sitemap.xml
