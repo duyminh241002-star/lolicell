@@ -6,6 +6,8 @@ on:
       - "urls.txt"
       - ".github/workflows/generate-sitemap.yml"
   workflow_dispatch: {}
+  schedule:
+    - cron: "0 1 * * *"   # 01:00 UTC = 08:00 ICT mỗi ngày
 
 permissions:
   contents: write
@@ -23,8 +25,7 @@ jobs:
           python-version: "3.11"
 
       - name: Generate sitemap.xml
-        run: |
-          python generate_sitemap.py
+        run: python generate_sitemap.py
 
       - name: Commit sitemap.xml back
         uses: stefanzweifel/git-auto-commit-action@v5
