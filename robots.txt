@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://duyminh241002-star.github.io/lolicell/sitemap.xml
